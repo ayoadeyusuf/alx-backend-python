@@ -16,7 +16,7 @@ def paginate_users(page_size, offset):
     try:
         with conn.cursor(cursor_factory=RealDictCursor) as cursor:
             cursor.execute(
-                "SELECT * FROM user_data user_id LIMIT %s OFFSET %s",
+                "SELECT * FROM user_data LIMIT %s OFFSET %s",
                 (page_size, offset)
             )
             return cursor.fetchall()
