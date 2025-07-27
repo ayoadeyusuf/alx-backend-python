@@ -31,4 +31,4 @@ def batch_processing(batch_size):
         # Loop over each user in batch and yield if over 25
         for user in batch:
             if user.get('age', 0) > 25:
-                yield user
+                return user
