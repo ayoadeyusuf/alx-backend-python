@@ -24,7 +24,7 @@ def paginate_users(page_size, offset):
         conn.close()
 
 
-def lazy_paginate(page_size):
+def lazypaginate(page_size):
     """
     Generator that fetches rows page by page from user_data table,
     yielding one user at a time.
