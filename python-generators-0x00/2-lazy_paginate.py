@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
-def paginate_users(pagesize, offset):
+def paginate_users(page_size, offset):
     """
     Fetch a page of users from user_data table with limit and offset.
     Returns a list of user rows (dict).
@@ -16,8 +16,8 @@ def paginate_users(pagesize, offset):
     try:
         with conn.cursor(cursor_factory=RealDictCursor) as cursor:
             cursor.execute(
-                "SELECT * FROM user_data ORDER BY user_id LIMIT %s OFFSET %s",
-                (pagesize, offset)
+                "SELECT * FROM user_data user_id LIMIT %s OFFSET %s",
+                (page_size, offset)
             )
             return cursor.fetchall()
     finally:
